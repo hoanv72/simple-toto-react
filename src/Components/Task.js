@@ -23,16 +23,23 @@ export class Task extends Component {
 		});
 
 	}
-	handleDelete = (val, event) =>{
-		event.preventDefault();
-		var data = [...this.state.items];
+	// handleDelete = (val, event) =>{
+	// 	event.preventDefault();
+	// 	var data = [...this.state.items];
 
-		data.filter( (item, index) => {
-			if(index === val){
-				data.splice(index, 1);
-			}
-		});
-		this.setState({items: [...data]})
+	// 	data.filter( (item, index) => {
+	// 		if(index === val){
+	// 			data.splice(index, 1);
+	// 		}
+	// 	});
+	// 	this.setState({items: [...data]})
+	// }
+
+	handleDelete = (index, event) => {
+		event.preventDefault();
+		let data = [...this.state.items];
+		data.splice(index, 1);
+		this.setState({ items: [...data]})
 	}
 
 	render() {
